@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
 
+# What is Photoshare ?
+PhotoShare is an app on which users can share photos
+
+### Context
+I'm making this project while learning Angular basics on OpenClassrooms, so i'm practising here while having some fun
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
