@@ -1,0 +1,10 @@
+
+<div class="shared-photo-card">
+    <h1>{{sharedPhoto.title}}</h1>
+    <img [src]="sharedPhoto.photoUrl" [alt]="sharedPhoto.title">
+    <p>{{sharedPhoto.description}}</p>
+    <p>Shared on {{sharedPhoto.createdAt}}</p>
+    <p>
+        <button (click)="onShareClick()">{{sharedPhoto.shareButtonText}}</button>🤌{{sharedPhoto.shares}}
+    </p>
+</div>
