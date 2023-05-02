@@ -1,7 +1,7 @@
 
 <div class="shared-photo-card" [ngClass]="{shared : sharedPhoto.shareButtonText ==='Unshare This'}">
-    <h2>{{sharedPhoto.title}}</h2>
-    <p>Shared on {{sharedPhoto.createdAt}}</p>
+    <h2>{{sharedPhoto.title | uppercase }}</h2>
+    <p>Shared on {{sharedPhoto.createdAt | date:'d MMMM yyyy, HH:mm'}}</p>
     
     <img [src]="sharedPhoto.photoUrl" [alt]="sharedPhoto.title">
     <p>{{sharedPhoto.description}}</p>
