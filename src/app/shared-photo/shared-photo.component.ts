@@ -9,19 +9,16 @@ import { SharedPhoto } from '../models/shared-photo.model';
 export class SharedPhotoComponent implements OnInit{
 
   @Input() sharedPhoto! : SharedPhoto;
-  
-  shareButtonText! : string;
-
 
   ngOnInit() {
-    this.shareButtonText = 'Share This';
+    this.sharedPhoto.shareButtonText = 'Share This';
   }
   onShareClick(){
-    if (this.shareButtonText === 'Share This') {
-      this.shareButtonText = 'Unshare This';
+    if (this.sharedPhoto.shareButtonText === 'Share This') {
+      this.sharedPhoto.shareButtonText = 'Unshare This';
       this.sharedPhoto.shares++;
     }else{
-      this.shareButtonText = 'Share This';
+      this.sharedPhoto.shareButtonText = 'Share This';
       this.sharedPhoto.shares--;
     }
 

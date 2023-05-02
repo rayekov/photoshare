@@ -1,3 +1,1 @@
-<app-shared-photo [sharedPhoto]="myPhoto"></app-shared-photo>
-<app-shared-photo [sharedPhoto]="myPhoto2"></app-shared-photo>
-<app-shared-photo [sharedPhoto]="myPhoto3"></app-shared-photo>
+<app-shared-photo *ngFor="let sharedPhoto of sharedPhotos" [sharedPhoto]="sharedPhoto"></app-shared-photo>

@@ -1,10 +1,14 @@
 
-<div class="shared-photo-card">
-    <h1>{{sharedPhoto.title}}</h1>
+<div class="shared-photo-card" [ngClass]="{shared : sharedPhoto.shareButtonText ==='Unshare This'}">
+    <h2>{{sharedPhoto.title}}</h2>
+    <p>Shared on {{sharedPhoto.createdAt}}</p>
+    
     <img [src]="sharedPhoto.photoUrl" [alt]="sharedPhoto.title">
     <p>{{sharedPhoto.description}}</p>
-    <p>Shared on {{sharedPhoto.createdAt}}</p>
+    <p *ngIf="sharedPhoto.location">📍{{sharedPhoto.location}}</p>
+    
     <p>
-        <button (click)="onShareClick()">{{sharedPhoto.shareButtonText}}</button>🤌{{sharedPhoto.shares}}
+        <button (click)="onShareClick()">{{sharedPhoto.shareButtonText}}</button>
+        <span [ngStyle]="{color:'rgb(0,'+sharedPhoto.shares*5+',0)'}">😍{{sharedPhoto.shares}}</span> 
     </p>
 </div>
