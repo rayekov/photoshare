@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SharedPhoto } from '../models/shared-photo.model';
+import { SharedPhotoService } from '../services/shared-photo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shared-photo',
@@ -9,19 +11,25 @@ import { SharedPhoto } from '../models/shared-photo.model';
 export class SharedPhotoComponent implements OnInit{
 
   @Input() sharedPhoto! : SharedPhoto;
+  shareButtonText!: string;
+  constructor(private sharedPhotoService : SharedPhotoService,private router : Router){}
 
   ngOnInit() {
-    this.sharedPhoto.shareButtonText = 'Share This';
+    this.shareButtonText = 'Share This';
   }
   onShareClick(){
-    if (this.sharedPhoto.shareButtonText === 'Share This') {
-      this.sharedPhoto.shareButtonText = 'Unshare This';
-      this.sharedPhoto.shares++;
+    if (this.shareButtonText === 'Share This') {
+      this.shareButtonText = 'Unshare This';
+      this.sharedPhotoService.sharePhotoById(this.sharedPhoto.id, 'share');
     }else{
-      this.sharedPhoto.shareButtonText = 'Share This';
-      this.sharedPhoto.shares--;
+      this.shareButtonText = 'Share This';
+      this.sharedPhotoService.sharePhotoById(this.sharedPhoto.id, 'unshare');
     }
 
+  }
+
+  OnSharedPhotoView(){
+    this.router.navigateByUrl(`sharedphotos/${this.sharedPhoto.id}`);
   }
 
 }
